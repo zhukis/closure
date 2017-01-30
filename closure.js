@@ -9,17 +9,21 @@ var calculator = createCalcaulator();
 // console.log( calculator.showResult() );
 
 console.log( calculator.showResult() );
-hackedCalculator(calculator);
+calculator.hack = function () {
+    return function () {
+        sum = -1;
+        console.log(sum);
+    }
+};
+
 var hacker = calculator.hack();
 hacker();
 console.log( calculator.showResult() );
 
-
-
 function hackedCalculator(obj) {
     obj.hack = function () {
-        return function (obj) {
-            obj.sum = -1;
+        return function () {
+            console.log(sum);
         }
     }
 }
